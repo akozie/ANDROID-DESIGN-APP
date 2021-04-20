@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/ic_products"
+        android:icon="@drawable/ic_group_10"
+        android:title="Products" />
+    <item
+        android:id="@+id/ic_payments"
+        android:icon="@drawable/ic_wallet_1"
+        android:title="Payments" />
+    <item
+        android:id="@+id/ic_history"
+        android:icon="@drawable/ic_clock__2__1"
+        android:title="History" />
+    <item
+        android:id="@+id/ic_support"
+        android:icon="@drawable/ic_heart__1__1"
+        android:title="Support" />
+    <item
+        android:id="@+id/ic_more"
+        android:icon="@drawable/ic_group_9"
+        android:title="More" />
+</menu>
