@@ -15,10 +15,10 @@ class Contributors {
         /**
          * ADD CONTRIBUTORS TO LIST
          * */
-        list.add(ContributorsModel("Olalekan", "from 5%", "shirts" , R.color.teal_200))
-        list.add(ContributorsModel("Aviasales", "from 7%", "bags", R.color.black))
-        list.add(ContributorsModel("James", "from 9%", "shoes",R.color.teal_700))
-        list.add(ContributorsModel("Jole", "from 0.5%", "electronics", R.color.teal_200))
+        list.add(ContributorsModel("Olalekan", "from 5%", "clothes and shoes" , R.drawable.shopping_bag_red))
+        list.add(ContributorsModel("Aviasales", "from 7%", "shirts and bags", R.drawable.shopping_bag_blue))
+        list.add(ContributorsModel("James", "from 9%", "shoes", R.drawable.shopping_bag_red))
+        list.add(ContributorsModel("Jole", "from 0.5%", "electronics", R.drawable.shopping_bag_blue))
         return  list
     }
 }
