@@ -82,6 +82,7 @@ class ProductsFragment : Fragment() {
         viewPager.setPageTransformer(compositionPageTransformer)
     }
 
+
     private fun contributorsView() {
         var contributorsList = contributors.contributorsList
 
