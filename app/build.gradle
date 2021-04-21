@@ -48,6 +48,7 @@ dependencies {
     implementation 'me.relex:circleindicator:2.1.4'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:3.0.3'
 
 
 

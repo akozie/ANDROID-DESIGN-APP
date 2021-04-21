@@ -6,9 +6,9 @@
         <shape
             android:shape = "ring"
             android:tint="@color/red"
-            android:innerRadius="10dp"
+            android:innerRadius="5dp"
             android:useLevel="false"
-            android:thickness="2dp">
+            android:thickness="6dp">
 
         </shape>
     </item>

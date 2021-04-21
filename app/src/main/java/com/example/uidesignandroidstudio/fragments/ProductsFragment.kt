@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
@@ -13,8 +16,13 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.uidesignandroidstudio.ContributorsAdapter
 import com.example.uidesignandroidstudio.R
 import com.example.uidesignandroidstudio.ViewPagerAdapter
+import com.example.uidesignandroidstudio.model.DebitCardModel
 import com.example.uidesignandroidstudio.resources.Contributors
 import com.example.uidesignandroidstudio.resources.DebitCards
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
+import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
+import me.relex.circleindicator.CircleIndicator3
 
 
 /**
@@ -33,6 +41,9 @@ class ProductsFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var contributorsAdapter: ContributorsAdapter
     private lateinit var layoutManager: LinearLayoutManager
+    private lateinit var indicator: TabLayout
+    private var countDots = 0
+
 
 
     override fun onCreateView(
@@ -44,8 +55,10 @@ class ProductsFragment : Fragment() {
 
         viewPager = view.findViewById(R.id.view_Pager2)
         recyclerView = view.findViewById(R.id.recycler)
+        indicator = view.findViewById(R.id.indicator)
 
         return view
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -59,7 +72,7 @@ class ProductsFragment : Fragment() {
         /**
          * Instantiate cards
          * */
-        var debitCards = debitCards.initDebitCards
+        val debitCards = debitCards.initDebitCards
 
         /**
          * Setup ViewpagerAdapter
@@ -80,11 +93,25 @@ class ProductsFragment : Fragment() {
             page.scaleY = 1 - (0.25f * kotlin.math.abs(position))
         }
         viewPager.setPageTransformer(compositionPageTransformer)
+
+
+        TabLayoutMediator(indicator, viewPager) { tab, position ->
+            tab.icon = resources.getDrawable(R.drawable.active_indicator)
+//            viewPager.setCurrentItem(tab.position, true)
+        }.attach()
+        countDots = viewPagerAdapter.itemCount
+
+        val dots = arrayOfNulls<ImageView>(countDots)
+        for (i in 0 until countDots) {
+            dots[i] = ImageView(requireContext())
+            dots[i]!!.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.default_indicator))
+        }
     }
 
 
+
     private fun contributorsView() {
-        var contributorsList = contributors.contributorsList
+        val contributorsList = contributors.contributorsList
 
         layoutManager = LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL, false)
 
