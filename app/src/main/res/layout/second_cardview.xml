@@ -8,7 +8,9 @@
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/grey"
         android:layout_centerHorizontal="true"
+        android:paddingBottom="10dp"
         android:columnCount="5"
         android:rowCount="1">
 

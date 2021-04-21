@@ -97,7 +97,6 @@ class ProductsFragment : Fragment() {
 
         TabLayoutMediator(indicator, viewPager) { tab, position ->
             tab.icon = resources.getDrawable(R.drawable.active_indicator)
-//            viewPager.setCurrentItem(tab.position, true)
         }.attach()
         countDots = viewPagerAdapter.itemCount
 
