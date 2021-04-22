@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
@@ -32,8 +33,8 @@ import me.relex.circleindicator.CircleIndicator3
  */
 class ProductsFragment : Fragment() {
 
-    val debitCards = DebitCards()
-    val contributors = Contributors()
+    private val debitCards = DebitCards()
+    private val contributors = Contributors()
 
 
     private lateinit var viewPager: ViewPager2
@@ -42,7 +43,6 @@ class ProductsFragment : Fragment() {
     private lateinit var contributorsAdapter: ContributorsAdapter
     private lateinit var layoutManager: LinearLayoutManager
     private lateinit var indicator: TabLayout
-    private var countDots = 0
 
 
 
@@ -68,6 +68,9 @@ class ProductsFragment : Fragment() {
         contributorsView()
     }
 
+    /**
+     * Setup CARD METHODS
+     * */
     private fun loanDebits() {
         /**
          * Instantiate cards
@@ -79,6 +82,9 @@ class ProductsFragment : Fragment() {
          * */
         viewPagerAdapter = ViewPagerAdapter(debitCards)
 
+        /**
+         * Setup ANIMATIONS
+         * */
         viewPager.apply {
             adapter = viewPagerAdapter
             clipToPadding = false
@@ -96,18 +102,15 @@ class ProductsFragment : Fragment() {
 
 
         TabLayoutMediator(indicator, viewPager) { tab, position ->
-            tab.icon = resources.getDrawable(R.drawable.active_indicator)
+            viewPager.setCurrentItem(tab.position, true)
         }.attach()
-        countDots = viewPagerAdapter.itemCount
 
-        val dots = arrayOfNulls<ImageView>(countDots)
-        for (i in 0 until countDots) {
-            dots[i] = ImageView(requireContext())
-            dots[i]!!.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.default_indicator))
-        }
     }
 
 
+    /**
+     * Setup CONTRIBUTORS METHOD
+     * */
 
     private fun contributorsView() {
         val contributorsList = contributors.contributorsList

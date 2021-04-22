@@ -28,15 +28,15 @@ class ContributorsAdapter(var contributorsList: ArrayList<ContributorsModel>) :
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         holder.itemView.apply {
-            val contributors_name = findViewById<TextView>(R.id.contributors_name)
-            val contributors_percentage = findViewById<TextView>(R.id.contributors_percentage)
-            val contributors_brand = findViewById<TextView>(R.id.contributors_package)
-            val contributors_image = findViewById<ImageView>(R.id.contributors_image)
+            val contributorsName = findViewById<TextView>(R.id.contributors_name)
+            val contributorsPercentage = findViewById<TextView>(R.id.contributors_percentage)
+            val contributorsBrand = findViewById<TextView>(R.id.contributors_package)
+            val contributorsImage = findViewById<ImageView>(R.id.contributors_image)
 
-            contributors_name.text = contributorsList[position].name
-            contributors_percentage.text = contributorsList[position].percentage
-            contributors_brand.text = contributorsList[position].brand
-            contributors_image.setImageResource(contributorsList[position].image)
+            contributorsName.text = contributorsList[position].name
+            contributorsPercentage.text = contributorsList[position].percentage
+            contributorsBrand.text = contributorsList[position].brand
+            contributorsImage.setImageResource(contributorsList[position].image)
         }
     }
 

@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TableLayout
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
+
         val btn = findViewById<ImageView>(R.id.btn)
 
         createNotificationChannel()
@@ -43,12 +45,6 @@ class MainActivity : AppCompatActivity() {
             myNotification()
         }
 
-
-        /**
-         * REMOVE THE APP BAR
-         * */
-        val bar = supportActionBar
-        bar?.hide()
 
         /**
          * INSTANTIATE EACH FRAGMENTS
@@ -81,8 +77,12 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * NOTIFICATION
+     * */
+
     fun myNotification(){
-        val intent = Intent(this, SecondActivity::class.java).apply {
+        val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK
             putExtra("MESSAGE", "ACTIVE")
         }
@@ -117,7 +117,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /***/
 
+    /**
+     * DISPLAYS THE CURRENT FRAGMENT
+     * */
     private fun currentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.frame, fragment)
